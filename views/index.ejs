@@ -1,0 +1,20 @@
+<%- include partials/header %>
+<h1>Products Page</h1>
+
+<form action="/" method="POST">
+<input name="products" placeholder="enter the products name"/>
+<button type="submit">submit</button>
+     </form> 
+
+    <ul>
+<% for(let i=0 ; i< products.length; i++){ %>
+    <div>
+                 <li><%= products[i]%>
+                 <button>all</button>
+                </li>
+                </div>
+    <% } %>
+</ul>
+
+<%- include partials/footer %>
+    
