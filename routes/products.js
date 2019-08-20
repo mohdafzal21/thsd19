@@ -6,7 +6,8 @@ const db = require('../models')
 //method - GET all products @find
 router.get('/', (req,res)=>{
     db.PRODUCTS.find()
-    .then((data)=> res.json(data))
+    // .then((data)=> res.json(data))
+    .then((data)=> res.render('products',{data:data}))
     .catch((err)=> res.send(err))
 })
 
@@ -15,7 +16,8 @@ router.get('/', (req,res)=>{
 router.post('/', (req,res)=>{
     console.log(req.body)
     db.PRODUCTS.create(req.body)
-    .then((data) => res.json(data))
+    // .then((data) => res.json(data))
+    .then(()=> res.redirect('/products'))
     .catch((err)=> res.send(err))
 })
 

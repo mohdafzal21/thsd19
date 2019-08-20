@@ -1,0 +1,30 @@
+<%- include partials/header %>
+<h1>Product Hunt</h1>
+<form action='/products' method="POST">
+    <input name="name" placeholder="enter name" >
+    <input name="subcribersCount" placeholder="enter count">
+    <input name="description" placeholder="enter description">
+    <button type="submit">submit</button>
+
+
+</form>
+<hr/>
+<div class="container">
+    <div class="row">
+            <% for(let i=0;i<data.length; i++) { %>
+                    <div class="card" style="width: 18rem;">
+                            <img src="<%=data[i].productImage%>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title"><%= data[i].name %></h3>
+                                <h3 class="card-title"><%= data[i].subcribersCount %></h3>
+                              <p class="card-text"><%= data[i].name %></p>
+                            </div>
+                          </div>
+             <% } %>
+    </div>
+</div>
+
+
+
+
+<%- include partials/footer %>
