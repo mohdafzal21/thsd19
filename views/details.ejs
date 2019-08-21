@@ -1,0 +1,19 @@
+<h1>
+    More detail on Product
+</h1>
+<%= data.name%>
+<%=data %>
+<br/>
+<form action="/products/<%=data._id%>?_method=DELETE" method="POST">
+<button type="submit">delete</button>
+</form>
+
+<h3>Update the data </h3>
+<form action="/products/<%=data._id%>?_method=PUT" method="POST">
+
+     <input value="<%=data.name%>" name="name" placeholder="enter name" >
+    <input value="<%=data.subcribersCount%>" name="subcribersCount" placeholder="enter count">
+    <input value="<%=data.description%>" name="description" placeholder="enter description">
+    <button type="submit">submit</button>
+
+</form>

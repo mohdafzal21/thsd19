@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = 3000 
 const  bodyParser = require('body-parser')
+var methodOverride = require('method-override')
 const path = require('path')
 //view engine   
 app.set('view engine' ,'ejs')
@@ -12,7 +13,8 @@ app.use(express.static(path.join(__dirname,'public')))
 app.use(bodyParser.urlencoded({ extended: false }))
  // parse application/json
 app.use(bodyParser.json())
-
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 //route config 
 const indexRouter = require('./routes/index')
 const jobsRouter = require('./routes/jobs')
