@@ -36,6 +36,12 @@ router.put('/:id',(req,res)=>{
     .then(()=>res.redirect(`/products/${req.params.id}`))
     .catch((err)=> res.send(err))
 })
+
+//update count 
+router.put('/count/:id',(req,res)=>{
+    db.PRODUCTS.findOneAndUpdate({})
+})
+
 //DELETE - /products/:id
 //Delete a product - findOneAndRemove
 router.delete('/:id', (req,res)=>{

@@ -20,10 +20,14 @@ const indexRouter = require('./routes/index')
 const jobsRouter = require('./routes/jobs')
 const profileRouter = require('./routes/profile')
 const productsRouter = require('./routes/products')
+const postsRouter = require('./routes/posts')
+const userRouter = require('./routes/users')
 app.use('/', indexRouter)
 app.use('/jobs', jobsRouter)
 app.use('/profile', profileRouter)
 app.use('/products', productsRouter)
+app.use('/posts', postsRouter)
+app.use('/users', userRouter)
 
 
 
