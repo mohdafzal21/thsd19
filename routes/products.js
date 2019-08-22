@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
+const loggedIn = require('../middleware/authmiddleware')
 //path - /products
 //method - GET all products @find
-router.get('/', (req,res)=>{
+router.get('/',loggedIn,(req,res)=>{
     db.PRODUCTS.find()
     // .then((data)=> res.json(data))
     .then((data)=> res.render('products',{data:data}))

@@ -3,7 +3,29 @@ const app = express()
 const PORT = 3000 
 const  bodyParser = require('body-parser')
 var methodOverride = require('method-override')
+const session = require('express-session')
 const path = require('path')
+//
+const db = require('./models')
+//passport config
+var passport = require('passport')
+var LocalStrategy = require('passport-local');
+
+//passport session
+app.use(passport.initialize());
+app.use(passport.session());
+// use static authenticate method of model in LocalStrategy
+passport.use(new LocalStrategy(db.User.authenticate()));
+
+passport.serializeUser(db.User.serializeUser());
+passport.deserializeUser(db.User.deserializeUser());
+
+app.use(session({
+    secret: "ast u",
+    resave: false,
+    saveUninitialized: false
+}));
+
 //view engine   
 app.set('view engine' ,'ejs')
 app.set('views' ,path.join(__dirname,'views') )
